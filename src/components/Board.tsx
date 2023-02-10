@@ -3,7 +3,7 @@ import Square from './Square';
 import calculateWinner from '../utilities/calculateWinner';
 
 const Board = ({ xIsNext, squares, onPlay }: BoardProps) => {
-    function handleClick(i: number) {
+    const handleClick = (i: number) =>{
         if (calculateWinner(squares) || squares[i]) {
             return;
         }

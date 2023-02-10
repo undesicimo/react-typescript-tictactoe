@@ -1,7 +1,7 @@
-import Game from "./components/Game"
+import Game from './components/Game';
 
-export default function App() {
-  return (
-    <Game />
-  )
-}
+const App = () => {
+    return <Game />;
+};
+
+export default App;
