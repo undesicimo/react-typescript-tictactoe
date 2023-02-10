@@ -1,4 +1,5 @@
+import { valueProps } from './ValueProps';
 export default interface SquareProps {
-    value: string;
+    value: valueProps;
     onSquareClick: () => void;
 }
