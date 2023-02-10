@@ -1,6 +1,7 @@
 import BoardProps from '../interfaces/BoardProps';
 import Square from './Square';
 import calculateWinner from '../utilities/calculateWinner';
+import { useEffect, useState } from 'react';
 
 const Board = ({ xIsNext, squares, onPlay }: BoardProps): JSX.Element => {
     const handleClick = (i: number) => {
@@ -17,12 +18,16 @@ const Board = ({ xIsNext, squares, onPlay }: BoardProps): JSX.Element => {
     };
 
     const winner = calculateWinner(squares);
-    let status;
-    if (winner) {
-        status = 'Winner' + winner;
-    } else {
-        status = 'Next player:' + (xIsNext ? 'X' : 'O');
-    }
+
+    const [status, setStatus] = useState('');
+
+    useEffect(() => {
+        if (winner) {
+            setStatus(`Winner ${winner}`);
+        } else {
+            setStatus(`Next player: ${xIsNext ? 'X' : 'O'}`);
+        }
+    });
 
     return (
         <>
