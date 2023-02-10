@@ -1,6 +1,6 @@
 import Game from './components/Game';
 
-const App = () => {
+const App = (): JSX.Element => {
     return <Game />;
 };
 

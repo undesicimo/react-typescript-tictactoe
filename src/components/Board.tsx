@@ -2,8 +2,8 @@ import BoardProps from '../interfaces/BoardProps';
 import Square from './Square';
 import calculateWinner from '../utilities/calculateWinner';
 
-const Board = ({ xIsNext, squares, onPlay }: BoardProps) => {
-    const handleClick = (i: number) =>{
+const Board = ({ xIsNext, squares, onPlay }: BoardProps): JSX.Element => {
+    const handleClick = (i: number) => {
         if (calculateWinner(squares) || squares[i]) {
             return;
         }
@@ -14,7 +14,7 @@ const Board = ({ xIsNext, squares, onPlay }: BoardProps) => {
             nextSquares[i] = 'O';
         }
         onPlay(nextSquares);
-    }
+    };
 
     const winner = calculateWinner(squares);
     let status;
