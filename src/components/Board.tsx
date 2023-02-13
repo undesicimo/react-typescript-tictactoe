@@ -4,6 +4,7 @@ import calculateWinner from '../utilities/calculateWinner';
 import { useEffect, useState } from 'react';
 
 const Board = ({ xIsNext, squares, onPlay }: BoardProps): JSX.Element => {
+    const [status, setStatus] = useState('');
     const handleClick = (i: number) => {
         if (calculateWinner(squares) || squares[i]) {
             return;
@@ -18,8 +19,6 @@ const Board = ({ xIsNext, squares, onPlay }: BoardProps): JSX.Element => {
     };
 
     const winner = calculateWinner(squares);
-
-    const [status, setStatus] = useState('');
 
     const checkStatus = () => {
         if (winner) {
