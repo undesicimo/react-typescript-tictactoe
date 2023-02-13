@@ -21,14 +21,16 @@ const Board = ({ xIsNext, squares, onPlay }: BoardProps): JSX.Element => {
 
     const [status, setStatus] = useState('');
 
-    useEffect(() => {
+    const checkStatus = () => {
         if (winner) {
             setStatus(`Winner ${winner}`);
         } else {
             setStatus(`Next player: ${xIsNext ? 'X' : 'O'}`);
         }
-    });
-
+    };
+    useEffect(() => {
+        checkStatus();
+    }, [winner, xIsNext]);
     return (
         <>
             <div className='status'>{status}</div>
