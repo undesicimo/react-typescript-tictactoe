@@ -1,11 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import Game from './Game';
-import userEvent from '@testing-library/user-event';
+import setup from '../userEvent';
 
 describe('Game component', () => {
     it('should have history on clicks', async () => {
-        const user = userEvent.setup();
-        render(<Game />);
+        const { user } = setup(<Game />);
         const squares = screen.getAllByRole('button');
 
         await user.click(squares[0]);
@@ -19,8 +18,7 @@ describe('Game component', () => {
     });
 
     it('should go to first history move on click', async () => {
-        const user = userEvent.setup();
-        render(<Game />);
+        const { user } = setup(<Game />);
         const squares = screen.getAllByRole('button');
 
         await user.click(squares[0]);
@@ -44,8 +42,7 @@ describe('Board component', () => {
     });
 
     it('should show next player as O on click', async () => {
-        const user = userEvent.setup();
-        render(<Game />);
+        const { user } = setup(<Game />);
 
         const squares = screen.getAllByRole('button');
         await user.click(squares[0]);
@@ -55,8 +52,7 @@ describe('Board component', () => {
     });
 
     it('should show winner on winning condition', async () => {
-        const user = userEvent.setup();
-        render(<Game />);
+        const { user } = setup(<Game />);
         const squares = screen.getAllByRole('button');
 
         // Winner X
@@ -73,8 +69,7 @@ describe('Board component', () => {
 
 describe('Square component', () => {
     it('should show X on button first move', async () => {
-        const user = userEvent.setup();
-        render(<Game />);
+        const { user } = setup(<Game />);
         const squares = screen.getAllByRole('button');
 
         await user.click(squares[0]);
@@ -84,8 +79,7 @@ describe('Square component', () => {
     });
 
     it('should show O on button on the second move', async () => {
-        const user = userEvent.setup();
-        render(<Game />);
+        const { user } = setup(<Game />);
         const squares = screen.getAllByRole('button');
 
         await user.click(squares[0]);
