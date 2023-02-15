@@ -25,9 +25,14 @@ describe('Game component', () => {
         await user.click(squares[1]);
         await user.click(squares[2]);
 
+        const pressedXSquares = screen.getAllByRole('button', { name: 'X' });
+        expect(pressedXSquares).toHaveLength(2);
+        const pressedOSquares = screen.getAllByRole('button', { name: 'O' });
+        expect(pressedOSquares).toHaveLength(1);
+
         const gameStartHistory = screen.getByText('Go to move #1');
         await user.click(gameStartHistory);
 
-        expect(squares[0]).toHaveTextContent('X');
+        expect(squares[0]).toHaveTextContent('X' || 'O');
     });
 });
