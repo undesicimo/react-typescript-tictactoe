@@ -22,17 +22,6 @@ describe('Square component', () => {
     it('should show the passed value on button', () => {
         const { user } = setup(
             <Square
-                value='X'
-                onSquareClick={() => {}}
-            />
-        );
-        const button = screen.getByRole('button');
-
-        expect(button).toHaveTextContent('X');
-    });
-    it('should show the passed value on button', () => {
-        const { user } = setup(
-            <Square
                 value='O'
                 onSquareClick={() => {}}
             />
@@ -41,5 +30,4 @@ describe('Square component', () => {
 
         expect(button).toHaveTextContent('O');
     });
-    
 });
