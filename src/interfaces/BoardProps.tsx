@@ -1,6 +1,6 @@
-import { valueProps } from './ValueProps';
+import { valueProps, valuesProps } from './ValueProps';
 export default interface BoardProps {
     xIsNext: boolean;
-    squares: valueProps[];
-    onPlay: (nextString: valueProps[]) => void;
+    squares: valuesProps;
+    onPlay: (nextString: valuesProps) => void;
 }
