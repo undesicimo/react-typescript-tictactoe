@@ -63,8 +63,8 @@ describe('Name of the group', () => {
                 onPlay={([]) => {}}
             />
         );
-        const nextPlayer = screen.getAllByRole('button');
+        const squares = screen.getAllByRole('button');
 
-        expect(nextPlayer).toHaveLength(9);
+        expect(squares).toHaveLength(9);
     });
 });
