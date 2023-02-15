@@ -8,7 +8,7 @@ describe('Name of the group', () => {
             <Board
                 //xIsNext is false の場合
                 xIsNext={false}
-                squares={[]}
+                squares={[null, null, null, null, null, null, null, null, null]}
                 onPlay={([]) => {}}
             />
         );
@@ -21,7 +21,7 @@ describe('Name of the group', () => {
             <Board
                 //xIsNext is true の場合
                 xIsNext={true}
-                squares={[]}
+                squares={[null, null, null, null, null, null, null, null, null]}
                 onPlay={([]) => {}}
             />
         );
@@ -34,7 +34,7 @@ describe('Name of the group', () => {
             <Board
                 xIsNext={true}
                 // X is winner lines
-                squares={['X', 'O', 'O', 'X', 'O', 'X', 'X']}
+                squares={['X', 'O', 'O', 'X', 'O', 'X', 'X', 'O', 'X']}
                 onPlay={([]) => {}}
             />
         );
@@ -47,7 +47,7 @@ describe('Name of the group', () => {
             <Board
                 xIsNext={true}
                 // O is winner lines
-                squares={['O', 'X', 'X', 'O', 'X', 'O', 'O']}
+                squares={['O', 'X', 'X', 'O', 'X', 'O', 'O', 'O', 'X']}
                 onPlay={([]) => {}}
             />
         );
@@ -59,7 +59,7 @@ describe('Name of the group', () => {
         setup(
             <Board
                 xIsNext={true}
-                squares={[]}
+                squares={[null, null, null, null, null, null, null, null, null]}
                 onPlay={([]) => {}}
             />
         );
@@ -72,7 +72,7 @@ describe('Name of the group', () => {
         const { user } = setup(
             <Board
                 xIsNext={true}
-                squares={[]}
+                squares={[null, null, null, null, null, null, null, null, null]}
                 onPlay={([]) => {
                     mockFunction();
                 }}
@@ -81,6 +81,6 @@ describe('Name of the group', () => {
         const squares = screen.getAllByRole('button');
         await user.click(squares[0]);
 
-        expect(mockFunction).toHaveBeenCalledTimes(1)
+        expect(mockFunction).toHaveBeenCalledTimes(1);
     });
 });
