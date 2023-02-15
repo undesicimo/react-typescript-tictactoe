@@ -8,9 +8,7 @@ describe('Square component', () => {
         const { user } = setup(
             <Square
                 value='O'
-                onSquareClick={() => {
-                    mockFunction();
-                }}
+                onSquareClick={mockFunction}
             />
         );
 

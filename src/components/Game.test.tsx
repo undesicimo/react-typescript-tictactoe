@@ -33,6 +33,6 @@ describe('Game component', () => {
         const gameStartHistory = screen.getByText('Go to move #1');
         await user.click(gameStartHistory);
 
-        expect(squares[0]).toHaveTextContent('X' || 'O');
+        expect(squares[0]).toHaveTextContent('X');
     });
 });
