@@ -1,6 +1,6 @@
 import Board from './Board';
 import setup from '../userEvent';
-import { getRoles, screen } from '@testing-library/dom';
+import { getAllByRole, getRoles, screen } from '@testing-library/dom';
 
 describe('Name of the group', () => {
     it('should have O as next player after X ', () => {
@@ -66,5 +66,21 @@ describe('Name of the group', () => {
         const squares = screen.getAllByRole('button');
 
         expect(squares).toHaveLength(9);
+    });
+    it('should call function on click', async () => {
+        const mockFunction = jest.fn();
+        const { user } = setup(
+            <Board
+                xIsNext={true}
+                squares={[]}
+                onPlay={([]) => {
+                    mockFunction();
+                }}
+            />
+        );
+        const squares = screen.getAllByRole('button');
+        await user.click(squares[0]);
+
+        expect(mockFunction).toHaveBeenCalledTimes(1)
     });
 });
