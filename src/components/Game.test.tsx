@@ -1,6 +1,7 @@
-import { screen } from '@testing-library/react';
+import { screen, getByRole } from '@testing-library/react';
 import Game from './Game';
 import setup from '../userEvent';
+import { getAllByRole } from '@testing-library/dom';
 
 describe('Game component', () => {
     it('should have history on clicks', async () => {
@@ -25,14 +26,15 @@ describe('Game component', () => {
         await user.click(squares[1]);
         await user.click(squares[2]);
 
-        const pressedXSquares = screen.getAllByRole('button', { name: 'X' });
-        expect(pressedXSquares).toHaveLength(2);
-        const pressedOSquares = screen.getAllByRole('button', { name: 'O' });
-        expect(pressedOSquares).toHaveLength(1);
+        expect(squares[0]).toHaveTextContent('X');
+        expect(squares[1]).toHaveTextContent('O');
+        expect(squares[2]).toHaveTextContent('X');
 
         const gameStartHistory = screen.getByText('Go to move #1');
         await user.click(gameStartHistory);
 
         expect(squares[0]).toHaveTextContent('X');
+        expect(squares[1]).toHaveTextContent('');
+        expect(squares[2]).toHaveTextContent('');
     });
 });
