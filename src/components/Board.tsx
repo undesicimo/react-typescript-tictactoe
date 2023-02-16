@@ -12,7 +12,7 @@ const Board = ({ xIsNext, squares, onPlay }: BoardProps): JSX.Element => {
         }
         const nextSquares = squares.slice() as valuesProps;
         if (xIsNext) {
-            nextSquares[i] =  'X';
+            nextSquares[i] = 'X';
         } else {
             nextSquares[i] = 'O';
         }

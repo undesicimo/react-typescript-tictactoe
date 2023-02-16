@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Board from './Board';
 import { valuesProps } from '../interfaces/ValueProps';
 
-const intialHistory: valuesProps = [
+const intialHistories: valuesProps = [
     null,
     null,
     null,
@@ -15,7 +15,7 @@ const intialHistory: valuesProps = [
 ];
 
 const Game = (): JSX.Element => {
-    const [history, setHistory] = useState<valuesProps[]>([intialHistory]);
+    const [history, setHistory] = useState<valuesProps[]>([intialHistories]);
     const [currentMove, setCurrentMove] = useState(0);
     const xIsNext = currentMove % 2 === 0;
     const currentSquares = history[currentMove];
