@@ -2,6 +2,7 @@ import BoardProps from '../interfaces/BoardProps';
 import Square from './Square';
 import calculateWinner from '../utilities/calculateWinner';
 import { useEffect, useState } from 'react';
+import { valuesProps } from '../interfaces/ValueProps';
 
 const Board = ({ xIsNext, squares, onPlay }: BoardProps): JSX.Element => {
     const [status, setStatus] = useState('');
@@ -9,7 +10,7 @@ const Board = ({ xIsNext, squares, onPlay }: BoardProps): JSX.Element => {
         if (calculateWinner(squares) || squares[i]) {
             return;
         }
-        const nextSquares = squares.slice();
+        const nextSquares = squares.slice() as valuesProps;
         if (xIsNext) {
             nextSquares[i] = 'X';
         } else {

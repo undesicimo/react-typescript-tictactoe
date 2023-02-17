@@ -1,4 +1,5 @@
-const calculateWinner = (squares: string[]) => {
+import { valuesProps } from '../interfaces/ValueProps';
+const calculateWinner = (squares: valuesProps) => {
     const lines = [
         [0, 1, 2],
         [3, 4, 5],

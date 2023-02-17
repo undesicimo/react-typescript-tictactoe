@@ -1,13 +1,26 @@
 import { useState } from 'react';
 import Board from './Board';
+import { valuesProps } from '../interfaces/ValueProps';
+
+const intialHistories: valuesProps = [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+];
 
 const Game = (): JSX.Element => {
-    const [history, setHistory] = useState([Array(9).fill(null)]);
+    const [history, setHistory] = useState<valuesProps[]>([intialHistories]);
     const [currentMove, setCurrentMove] = useState(0);
     const xIsNext = currentMove % 2 === 0;
     const currentSquares = history[currentMove];
 
-    const handlePlay = (nextSquares: string[]) => {
+    const handlePlay = (nextSquares: valuesProps) => {
         const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
         setHistory(nextHistory);
         setCurrentMove(nextHistory.length - 1);
